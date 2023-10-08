@@ -21,6 +21,7 @@ build:
     - export CXXFLAGS="${CXXFLAGS} -I${PREFIX}/include -I${PYTHON_INCLUDE_DIR}"              # [unix]
     # see https://github.com/boostorg/system/issues/32#issuecomment-462912013
     - set "CXXFLAGS=%CXXFLAGS% /DHAVE_SNPRINTF=1"                                            # [win]
+    - set "CFLAGS=%CFLAGS% /DHAVE_SNPRINTF=1"                                                # [win]
     - python setup.py build_ext --include-dirs=%PREFIX%\include --library-dirs=%PREFIX%\lib  # [win]
     - python setup.py build_ext --include-dirs=$PREFIX/include --library-dirs=$PREFIX/lib    # [not win]
     - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
