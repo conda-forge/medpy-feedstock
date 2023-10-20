@@ -14,7 +14,7 @@ source:
   - fix-compile.patch
 
 build:
-  number: 4
+  number: 5
   skip: True  # [py2k]
   script:
     - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"
