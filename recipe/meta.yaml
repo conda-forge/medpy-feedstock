@@ -35,7 +35,6 @@ requirements:
     - pip
     - python
   run:
-    - libboost-python-devel
     - numpy >=1.11.0
     - python
     - simpleitk  >=1.1.0
