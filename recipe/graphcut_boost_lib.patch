@@ -9,14 +9,24 @@ index 60ff667..130cd54 100755
 -# Special handling for homebrew Boost Python library
 -if sys.platform == "darwin":
 -    if sys.version_info.major > 2:
--        boost_python_library = 'boost_python' + str(sys.version_info.major)
+-        boost_python_library = "boost_python" + str(sys.version_info.major)
 -    else:
--        boost_python_library = 'boost_python'
+-        boost_python_library = "boost_python"
 -else:
--    boost_python_library = 'boost_python-py' + str(sys.version_info.major) + str(sys.version_info.minor)
--    if not find_library(boost_python_library):
--        # exact version not find, trying with major fit only as fallback
--        boost_python_library = 'boost_python' + str(sys.version_info.major)
+-    boost_python_library = try_find_library(
+-        "boost_python-py" + str(sys.version_info.major) + str(sys.version_info.minor)
+-    )
+-    if not boost_python_library:
+-        boost_python_library = try_find_library(
+-            "boost_python-py" + str(sys.version_info.major)
+-        )
+-    if not boost_python_library:
+-        boost_python_library = try_find_library(
+-            "boost_python" + str(sys.version_info.major) + str(sys.version_info.minor)
+-        )
+-    if not boost_python_library:
+-        # exact version not found, trying with major fit only as fallback
+-        boost_python_library = "boost_python" + str(sys.version_info.major)
 +# Find boost library as installed from conda-forge
 +boost_python_library = 'boost_python' + str(sys.version_info.major) + str(sys.version_info.minor)
  
