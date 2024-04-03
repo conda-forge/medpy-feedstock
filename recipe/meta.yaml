@@ -1,5 +1,5 @@
 {% set name = "medpy" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 
 package:
@@ -8,13 +8,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/MedPy-{{ version }}.tar.gz
-  sha256: f8a94937dbb947ab069e767862dc6b86896b153c41ce8ed9369c7d79c0033a88
+  sha256: 9506ce31dfd871835e87918f4698db17b4dc8751dc8eab2075cc72da3a3f122f
   patches:
-  - graphcut_boost_lib.patch
-  - fix-compile.patch
+    - graphcut_boost_lib.patch
+    - fix-compile.patch
 
 build:
-  number: 7
+  number: 0
   skip: true  # [win and py==38]
   script:
     - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"                                            # [unix]
