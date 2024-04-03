@@ -1,24 +1,34 @@
-diff --git c/setup.py w/setup.py
-index 60ff667..130cd54 100755
---- c/setup.py
-+++ w/setup.py
-@@ -31,17 +31,8 @@ def read(fname):
+diff --git a/setup.py b/setup.py
+index c30017d..5618c0b 100755
+--- a/setup.py
++++ b/setup.py
+@@ -42,27 +42,8 @@ def try_find_library(lib_name):
  ### PREDEFINED MODULES
  # The maxflow graphcut wrapper using boost.python
  
 -# Special handling for homebrew Boost Python library
 -if sys.platform == "darwin":
 -    if sys.version_info.major > 2:
--        boost_python_library = 'boost_python' + str(sys.version_info.major)
+-        boost_python_library = "boost_python" + str(sys.version_info.major)
 -    else:
--        boost_python_library = 'boost_python'
+-        boost_python_library = "boost_python"
 -else:
--    boost_python_library = 'boost_python-py' + str(sys.version_info.major) + str(sys.version_info.minor)
--    if not find_library(boost_python_library):
--        # exact version not find, trying with major fit only as fallback
--        boost_python_library = 'boost_python' + str(sys.version_info.major)
+-    boost_python_library = try_find_library(
+-        "boost_python-py" + str(sys.version_info.major) + str(sys.version_info.minor)
+-    )
+-    if not boost_python_library:
+-        boost_python_library = try_find_library(
+-            "boost_python-py" + str(sys.version_info.major)
+-        )
+-    if not boost_python_library:
+-        boost_python_library = try_find_library(
+-            "boost_python" + str(sys.version_info.major) + str(sys.version_info.minor)
+-        )
+-    if not boost_python_library:
+-        # exact version not found, trying with major fit only as fallback
+-        boost_python_library = "boost_python" + str(sys.version_info.major)
 +# Find boost library as installed from conda-forge
 +boost_python_library = 'boost_python' + str(sys.version_info.major) + str(sys.version_info.minor)
  
- maxflow = Extension('medpy.graphcut.maxflow',
-                     define_macros = [('MAJOR_VERSION', '0'),
+ maxflow = Extension(
+     "medpy.graphcut.maxflow",
