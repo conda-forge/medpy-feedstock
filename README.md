@@ -257,5 +257,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@loli](https://github.com/loli/)
 * [@sarthakpati](https://github.com/sarthakpati/)
 
