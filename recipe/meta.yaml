@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/MedPy-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/medpy-{{ version }}.tar.gz
   sha256: eb9040c2c01bcddbe63176d8d29fd1fdcaee79e269054ce1f4f3a48882b1f4d4
   patches:
   - graphcut_boost_lib.patch
