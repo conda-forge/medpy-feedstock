@@ -36,6 +36,7 @@ requirements:
     - libboost-python-devel
     - pip
     - python
+    - setuptools
   run:
     - numpy >=1.24
     - python
