@@ -14,7 +14,7 @@ source:
   - fix-compile.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and py==38]
   script:
     - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"                                            # [unix]
@@ -31,15 +31,18 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
+    - setuptools
   host:
     - libboost-python-devel
     - pip
     - python
+    - setuptools
   run:
     - numpy >=1.24
     - python
     - simpleitk >=2.1
     - scipy >=1.10
+    - setuptools
 
 test:
   imports:
