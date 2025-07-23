@@ -14,7 +14,7 @@ source:
   - fix-compile.patch
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win and py==38]
   script:
     - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"                                            # [unix]
