@@ -34,7 +34,7 @@ requirements:
     - setuptools
   host:
     - libboost-python-devel
-    - libboost-all-dev
+    - libboost-devel
     - pip
     - python
     - setuptools
