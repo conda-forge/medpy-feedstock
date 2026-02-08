@@ -15,7 +15,6 @@ source:
 
 build:
   number: 4
-  skip: true  # [win and py==38]
   script:
     - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"                                            # [unix]
     - export CXXFLAGS="${CXXFLAGS} -I${PREFIX}/include -I${PYTHON_INCLUDE_DIR}"              # [unix]
