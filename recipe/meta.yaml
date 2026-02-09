@@ -14,8 +14,7 @@ source:
   - fix-compile.patch
 
 build:
-  number: 3
-  skip: true  # [win and py==38]
+  number: 4
   script:
     - export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"                                            # [unix]
     - export CXXFLAGS="${CXXFLAGS} -I${PREFIX}/include -I${PYTHON_INCLUDE_DIR}"              # [unix]
@@ -34,6 +33,7 @@ requirements:
     - setuptools
   host:
     - libboost-python-devel
+    - libboost-devel
     - pip
     - python
     - setuptools
